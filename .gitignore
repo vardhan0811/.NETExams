@@ -1,0 +1,17 @@
+# Ignore build output and user-specific files
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.log
+*.tmp
+*.cache
+*.pdb
+*.dbmdl
+*.dbmdl
+*.jfm
+*.DS_Store
+Thumbs.db
