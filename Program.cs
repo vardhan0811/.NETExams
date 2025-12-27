@@ -1,12 +1,13 @@
-﻿using System;
+﻿
+using System;
 
-namespace Week1Exam
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Week1Exam.Run();
-        }
+        Week1Exam1.Run();
+        // Week1Exam2.Run(args);
     }
 }
+
