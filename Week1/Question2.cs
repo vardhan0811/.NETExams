@@ -90,21 +90,21 @@ public static class SaleTransactionManager // Defines the SaleTransactionManager
     public static void CreateNewTransaction() // Method to create a new transaction
     { // Start of CreateNewTransaction
         Console.Write("Enter Invoice No: "); // Prompt for invoice number
-        string invoiceNo = Console.ReadLine(); // Read invoice number
+        string invoiceNo = Console.ReadLine() ?? ""; // Read invoice number, default to empty string if null
         while (string.IsNullOrWhiteSpace(invoiceNo)) // While invoice number is empty
         { // Start of while
             Console.Write("Invoice No cannot be empty. Enter Invoice No: "); // Prompt again
-            invoiceNo = Console.ReadLine(); // Read invoice number again
+            invoiceNo = Console.ReadLine() ?? ""; // Read invoice number again, default to empty string if null
         } // End of while
         Console.Write("Enter Customer Name: "); // Prompt for customer name
-        string customerName = Console.ReadLine(); // Read customer name
+        string customerName = Console.ReadLine() ?? ""; // Read customer name, default to empty string if null
         Console.Write("Enter Item Name: "); // Prompt for item name
-        string itemName = Console.ReadLine(); // Read item name
+        string itemName = Console.ReadLine() ?? ""; // Read item name, default to empty string if null
         int quantity = 0; // Variable for quantity
         while (true) // Start of quantity loop
         { // Start of loop
             Console.Write("Enter Quantity: "); // Prompt for quantity
-            string qtyInput = Console.ReadLine(); // Read quantity input
+            string qtyInput = Console.ReadLine() ?? ""; // Read quantity input, default to empty string if null
             if (int.TryParse(qtyInput, out quantity) && quantity > 0) // Parse and check
                 break; // Exit loop if valid
             Console.WriteLine("Quantity must be a positive integer."); // Print error
@@ -113,7 +113,7 @@ public static class SaleTransactionManager // Defines the SaleTransactionManager
         while (true) // Start of purchase amount loop
         { // Start of loop
             Console.Write("Enter Purchase Amount (total): "); // Prompt for purchase amount
-            string purchaseInput = Console.ReadLine(); // Read purchase amount input
+            string purchaseInput = Console.ReadLine() ?? ""; // Read purchase amount input, default to empty string if null
             if (decimal.TryParse(purchaseInput, out purchaseAmount) && purchaseAmount > 0) // Parse and check
                 break; // Exit loop if valid
             Console.WriteLine("Purchase Amount must be a positive number."); // Print error
@@ -122,7 +122,7 @@ public static class SaleTransactionManager // Defines the SaleTransactionManager
         while (true) // Start of selling amount loop
         { // Start of loop
             Console.Write("Enter Selling Amount (total): "); // Prompt for selling amount
-            string sellingInput = Console.ReadLine(); // Read selling amount input
+            string sellingInput = Console.ReadLine() ?? ""; // Read selling amount input, default to empty string if null
             if (decimal.TryParse(sellingInput, out sellingAmount) && sellingAmount >= 0) // Parse and check
                 break; // Exit loop if valid
             Console.WriteLine("Selling Amount must be zero or positive."); // Print error
@@ -198,10 +198,10 @@ public static class SaleTransactionManager // Defines the SaleTransactionManager
 } // End of SaleTransactionManager class
 
 /// <summary>
-/// Main class for the Week 1 Exam 2 application logic.
+/// Main class for the Question2 application logic.
 /// </summary>
-public class Week1Exam2 // Defines the Week1Exam2 class
-{ // Start of Week1Exam2 class
+public class Question2 // Defines the Question2 class
+{ // Start of Question2 class
     /// <summary>
     /// Main loop to run the sales transaction application.
     /// </summary>
@@ -216,7 +216,7 @@ public class Week1Exam2 // Defines the Week1Exam2 class
             Console.WriteLine("3. Calculate Profit/Loss (Recompute & Print)"); // Print menu option 3
             Console.WriteLine("4. Exit"); // Print menu option 4
             Console.Write("Enter your option: "); // Prompt for option
-            string input = Console.ReadLine(); // Read user input
+            string input = Console.ReadLine() ?? ""; // Read user input, default to empty string if null
             Console.WriteLine(); // Print empty line
             switch (input) // Switch on user input
             { // Start of switch
@@ -238,4 +238,4 @@ public class Week1Exam2 // Defines the Week1Exam2 class
             } // End of switch
         } // End of loop
     } // End of Run method
-} // End of Week1Exam2 class
+} // End of Question2 class

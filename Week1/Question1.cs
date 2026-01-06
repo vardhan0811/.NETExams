@@ -8,11 +8,11 @@ using System;
         /// <summary>
         /// Gets or sets the unique bill identifier.
         /// </summary>
-        public string BillId { get; set; } // Bill ID property
+        public string? BillId { get; set; } // Bill ID property
         /// <summary>
         /// Gets or sets the patient's name.
         /// </summary>
-        public string PatientName { get; set; } // Patient name property
+        public string? PatientName { get; set; } // Patient name property
         /// <summary>
         /// Gets or sets whether the patient has insurance.
         /// </summary>
@@ -53,14 +53,14 @@ using System;
     } // End of PatientBill class
 
     /// <summary>
-    /// Main class for the Week 1 Exam 1 application logic.
+    /// Main class for the Question1 application logic.
     /// </summary>
-    public class Week1Exam1 // Defines the Week1Exam1 class
-    { // Start of Week1Exam1 class
+    public class Question1 // Defines the Question1 class
+    { // Start of Question1 class
         /// <summary>
         /// Represents the last generated patient bill.
         /// </summary>
-        static PatientBill LastBill = null; // Holds the last bill
+        static PatientBill? LastBill = null; // Holds the last bill
         /// <summary>
         /// Indicates whether there is a last bill available.
         /// </summary>
@@ -79,7 +79,7 @@ using System;
                 Console.WriteLine("3. Clear Last Bill"); // Print menu option 3
                 Console.WriteLine("4. Exit"); // Print menu option 4
                 Console.Write("Enter your option: "); // Prompt for option
-                string option = Console.ReadLine(); // Read user input
+                string option = Console.ReadLine() ?? ""; // Read user input, ensure not null
                 switch (option) // Switch on user input
                 { // Start of switch
                     case "1": // If option is 1
@@ -110,17 +110,17 @@ using System;
             do // Start of do-while loop
             { // Start of do block
                 Console.Write("\nEnter Bill Id: "); // Prompt for bill ID
-                billId = Console.ReadLine(); // Read bill ID
+                billId = Console.ReadLine() ?? ""; // Read bill ID, ensure not null
                 if (string.IsNullOrWhiteSpace(billId)) // Check if empty
                     Console.WriteLine("Bill Id cannot be empty."); // Print error
             } while (string.IsNullOrWhiteSpace(billId)); // Repeat if empty
             Console.Write("Enter Patient Name: "); // Prompt for patient name
-            string patientName = Console.ReadLine(); // Read patient name
+            string patientName = Console.ReadLine() ?? ""; // Read patient name, ensure not null
             bool hasInsurance = false; // Variable for insurance
             while (true) // Start of insurance loop
             { // Start of loop
                 Console.Write("Is the patient insured? (Y/N): "); // Prompt for insurance
-                string ins = Console.ReadLine(); // Read insurance input
+                string ins = Console.ReadLine() ?? ""; // Read insurance input, ensure not null
                 if (ins.Equals("Y", StringComparison.OrdinalIgnoreCase)) // If yes
                 { // Start of if
                     hasInsurance = true; // Set insurance true
@@ -210,4 +210,4 @@ using System;
             HasLastBill = false; // Set HasLastBill to false
             Console.WriteLine("\nLast bill cleared.\n"); // Print cleared message
         } // End of ClearLastBill
-    } // End of Week1Exam1 class
+    } // End of Question1 class
