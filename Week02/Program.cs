@@ -136,10 +136,10 @@ namespace PettyCashLedgerSystem
     }
 
 // Main program class
-public class Program
+public class Week02
 {
     // Entry point of the application
-    public static void Main(string[] args)
+    public static void Run(string[] args)
     {
         // Create ledgers for income and expenses
         var incomeBook = new Ledger<IncomeTransaction>();
